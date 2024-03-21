@@ -8,6 +8,10 @@ const router = Router();
 router.post('/', async (req: Request, res: Response) => {
     const { language, sourceCode, stdin } = req.body;
 
+    console.log("language: ", language);
+    console.log("sourceCode: ", sourceCode);
+    console.log("stdin: ", stdin)
+
     let languageId: number = 0;
 
     if (language === "JavaScript") {
@@ -61,9 +65,10 @@ router.post('/', async (req: Request, res: Response) => {
         try {
             const response = await axios.request(options);
             const responseData = response.data;
-            const responseDataString = JSON.stringify(responseData)
+            // const responseDataString = JSON.stringify(responseData)
 
-            return res.json(responseDataString);
+            // return res.json(responseDataString);
+            return res.json(responseData)
         } catch (error: any) {
             console.error('Error submitting snippet:', error);
 
@@ -116,9 +121,12 @@ router.get("/", async (req: Request, res: Response) => {
         try {
             const response = await axios.request(options);
             const responseData = response.data;
-            const responseDataString = JSON.stringify(responseData)
+            console.log("typeof responseData: ", typeof responseData)
 
-            return res.json(responseDataString)
+            // const responseDataString = JSON.stringify(responseData)
+
+            // return res.json(responseDataString)
+            return res.json(responseData)
         } catch (error) {
             console.error(error);
         }
