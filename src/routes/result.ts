@@ -6,7 +6,7 @@ const axios = require('axios');
 const router = Router();
 
 router.post('/', async (req: Request, res: Response) => {
-    const { language, sourceCode, stdin } = (await req.body());
+    const { language, sourceCode, stdin } = req.body;
 
     let languageId: number = 0;
 
