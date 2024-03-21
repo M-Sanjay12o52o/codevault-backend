@@ -8,7 +8,9 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'https://codevault-8imw95h0m-sanjays-projects-82890627.vercel.app/'
+}));
 app.use('/judgeo', judgeORoutes);
 app.use('/result', resultRoutes)
 app.use('/tasks', taskRoutes);
