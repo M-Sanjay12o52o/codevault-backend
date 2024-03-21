@@ -1,6 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { body, validationResult } from 'express-validator';
 import { db } from '../lib/db';
+const axios = require('axios');
 
 const router = Router();
 

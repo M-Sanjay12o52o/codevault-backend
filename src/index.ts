@@ -1,6 +1,7 @@
 import express, { NextFunction, Request, Response, Router } from 'express';
 import judgeORoutes from './routes/judgeo';
 import taskRoutes from './routes/tasks';
+import resultRoutes from './routes/result'
 import cors from 'cors';
 
 const app = express();
@@ -9,6 +10,7 @@ const port = process.env.PORT || 3001;
 app.use(express.json());
 app.use(cors());
 app.use('/judgeo', judgeORoutes);
+app.use('/result', resultRoutes)
 app.use('/tasks', taskRoutes);
 
 app.get('/', (req: Request, res: Response) => {
